@@ -6,9 +6,116 @@
     <title>Webpack</title>
   </head>
   <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Webpack!</h1>
-      <button class="btn btn-primary">Primary button</button>
+    <div class="container-lg shadow-sm rounded px-5">
+      <header class="py-3">
+        <nav class="navbar navbar-light bg-white d-flex align-center">
+          <div class="container">
+            <a href="/" class="navbar-brand">
+              <h3 class="roboto-medium fs-2 mb-0">CRUD Table</h3>
+            </a>
+            <form class="d-flex w-50">
+              <input
+                type="search"
+                class="form-control me-2"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-primary text-white" type="submit">
+                Search
+              </button>
+            </form>
+            <button
+              type="button"
+              class="btn btn-success"
+              data-bs-toggle="modal"
+              data-bs-target="#addModal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                fill="#fff"
+                class="bi bi-plus"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"
+                />
+              </svg>
+              <span class="text-white">Add</span>
+            </button>
+          </div>
+        </nav>
+      </header>
+      <table class="table shadow-sm">
+        <thead class="bg-gray">
+          <tr>
+            <th
+              scope="col"
+              class="d-flex align-center text-secondary roboto-medium"
+            >
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="parentIndeterminate"
+                />
+              </div>
+              <span>Name</span>
+            </th>
+            <th scope="col" class="text-secondary roboto-medium">Date</th>
+            <th scope="col" class="text-secondary roboto-medium">Status</th>
+            <th scope="col" class="text-secondary roboto-medium">Mobile</th>
+            <th scope="col" class="text-secondary roboto-medium">Email</th>
+            <th scope="col" class="text-secondary roboto-medium">Address</th>
+            <th scope="col" class="text-secondary roboto-medium">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table-body">
+          <tr class="mb-4">
+            <td class="d-flex align-center">
+              <div>
+                <input
+                  class="form-check-input mt-0"
+                  type="checkbox"
+                  id="childIndeterminate"
+                />
+              </div>
+              <span class="ms-2 text-base roboto-medium">Ethan Noah</span>
+            </td>
+            <td>
+              <span class="text-base roboto-medium">10 March, 2023</span>
+            </td>
+            <td>
+              <span
+                class="text-success roboto-light p-1 border border-success rounded"
+                >Success</span
+              >
+            </td>
+          </tr>
+          <tr class="mb-4">
+            <td class="d-flex align-center">
+              <div>
+                <input
+                  class="form-check-input mt-0"
+                  type="checkbox"
+                  id="childIndeterminate"
+                />
+              </div>
+              <span class="ms-2 text-base roboto-medium fs-5">Ethan Noah</span>
+            </td>
+            <td>
+              <span class="text-base roboto-medium fs-5">10 March, 2023</span>
+            </td>
+            <td>
+              <span
+                class="text-success roboto-light p-1 border border-success rounded fs-6"
+                >Success</span
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>
