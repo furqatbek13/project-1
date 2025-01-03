@@ -1,0 +1,38 @@
+{
+  "name": "es6-modules",
+  "version": "1.0.0",
+  "description": "Webpack introduction",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack  --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com"
+  },
+  "author": "Akrom",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "bootstrap": "^5.3.3",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "postcss": "^8.4.49",
+    "postcss-loader": "^8.1.1",
+    "sass": "1.77.6",
+    "sass-loader": "^16.0.4",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.9"
+  }
+}
