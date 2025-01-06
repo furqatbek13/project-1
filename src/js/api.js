@@ -1,13 +1,14 @@
 import axios from "axios";
 import { API_URL } from "./config";
-export default async function api(){
+export default  function api(){
     try {
-        const response = await axios.create({
+        return axios.create({
             baseURL: API_URL,
             timeout: 3000,
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
-        const {data} = response;
-        return data;
     } catch (error) {
         throw new Error(error.massage)
     }

@@ -1,15 +1,12 @@
-import axios from "axios";
+import AJAX_CALL from "./api";
 
-const userData = {
-    meta: {},
-    users: [],
-};
-export const getAllUsers = async() => {
-    const response = await axios.get("https://abed374aa042759d.mokky.dev/users");
-    userData.meta = response.data[0].meta;
-    userData.users = response.data[0].items;
+export const usersData = {
+  meta: {},
+  users: [],
 };
 
-export const creatUser = async (user) => {
-    await axios.post
-}
+export const getAllUsers = async () => {
+  const { data } = await AJAX_CALL().get();
+  usersData.meta = data[0].meta;
+  usersData.users = data[0].items;
+};

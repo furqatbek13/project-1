@@ -3,12 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
     <title>Webpack</title>
   </head>
+
   <body>
-    <div class="container-lg shadow-sm rounded px-5">
+    <div class="container-xxl shadow-sm rounded p-5">
       <header class="py-3">
-        <nav class="navbar navbar-light bg-white d-flex align-center">
+        <nav class="navbar navbar-light bg-white py-0 d-flex align-center">
           <div class="container">
             <a href="/" class="navbar-brand">
               <h3 class="roboto-medium fs-2 mb-0">CRUD Table</h3>
@@ -28,7 +36,7 @@
               type="button"
               class="btn btn-success"
               data-bs-toggle="modal"
-              data-bs-target="#addModal"
+              data-bs-target="#custom-modal"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,50 +80,101 @@
           </tr>
         </thead>
         <tbody id="table-body">
-          <tr class="mb-4">
-            <td class="d-flex align-center">
-              <div>
-                <input
-                  class="form-check-input mt-0"
-                  type="checkbox"
-                  id="childIndeterminate"
-                />
-              </div>
-              <span class="ms-2 text-base roboto-medium">Ethan Noah</span>
-            </td>
-            <td>
-              <span class="text-base roboto-medium">10 March, 2023</span>
-            </td>
-            <td>
-              <span
-                class="text-success roboto-light p-1 border border-success rounded"
-                >Success</span
-              >
-            </td>
-          </tr>
-          <tr class="mb-4">
-            <td class="d-flex align-center">
-              <div>
-                <input
-                  class="form-check-input mt-0"
-                  type="checkbox"
-                  id="childIndeterminate"
-                />
-              </div>
-              <span class="ms-2 text-base roboto-medium fs-5">Ethan Noah</span>
-            </td>
-            <td>
-              <span class="text-base roboto-medium fs-5">10 March, 2023</span>
-            </td>
-            <td>
-              <span
-                class="text-success roboto-light p-1 border border-success rounded fs-6"
-                >Success</span
-              >
-            </td>
-          </tr>
+          <!-- <tr class="mb-4">
+          <td class="d-flex align-center">
+            <div>
+              <input class="form-check-input mt-0" type="checkbox" id="childIndeterminate" />
+            </div>
+            <span class="ms-2 text-base roboto-medium">Ethan Noah</span>
+          </td>
+          <td>
+            <span class="text-base roboto-medium">10 March, 2023</span>
+          </td>
+          <td>
+            <span class="text-success roboto-light p-1 border border-success rounded">Success</span>
+          </td>
+          <td>
+            <span class="roboto-medium fs-6">00 000 0000</span>
+          </td>
+          <td>
+            <span class="roboto-light fs-6">furqat@gmail.com</span>
+          </td>
+          <td>
+            <span class="roboto-light fs-6">132,My New York 12401</span>
+          </td>
+          <td>
+            <button class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#4E7FFF" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+              </svg>
+            </button>
+            <button class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B4B" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+              </svg>
+            </button>
+          </td>
+        </tr> -->
+          <!-- <tr>
+          <td class="d-flex align-center">
+            <div>
+              <input class="form-check-input mt-0" type="checkbox" id="childIndeterminate" />
+            </div>
+            <p class="ms-2 text-base roboto-light">Ethan Noah</p>
+          </td>
+          <td>
+            <span class="text-base roboto-medium">10 March, 2023</span>
+          </td>
+          <td>
+            <span class="text-danger roboto-light p-1 border border-danger rounded fs-6 px-2">Failed</span>
+          </td>
+          <td>
+            <span class="roboto-light">00 000 0000</span>
+          </td>
+          <td>
+            <span class="roboto-light">furqat@gmail.com</span>
+          </td>
+          <td>
+            <span class="roboto-light">132,My New York 12401</span>
+          </td>
+          <td>
+            <button class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#4E7FFF" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325"/>
+              </svg>
+            </button>
+            <button class="btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#FF4B4B" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
+              </svg>
+            </button>
+          </td>
+        </tr> -->
         </tbody>
       </table>
+    </div>
+    <div
+      class="modal fade"
+      id="custom-modal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="custom-modal-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="custom-modal-label">Modal title</h1>
+            <button
+              class="btn-close"
+              type="button"
+              data-bs-dismiss="modal"
+              aria-label="close"
+            ></button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
