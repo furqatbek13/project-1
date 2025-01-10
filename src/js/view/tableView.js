@@ -1,12 +1,12 @@
-import { usersData } from "../model";
-
 export class TableView {
   #parentElement;
 
-  constructor() {}
+  constructor() {
+    this.#parentElement = document.getElementById("table-body");
+  }
 
   renderTable(users) {
-    this.#parentElement = document.getElementById("table-body");
+    this.#parentElement.innerHTML = "";
 
     const mappedHtml = users
       .map(

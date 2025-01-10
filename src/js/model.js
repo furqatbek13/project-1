@@ -10,3 +10,7 @@ export const getAllUsers = async () => {
   usersData.meta = data[0].meta;
   usersData.users = data[0].items;
 };
+
+export const createUser = async (user) => {
+  return await AJAX_CALL().post("/", user);
+};

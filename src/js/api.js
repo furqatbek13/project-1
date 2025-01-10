@@ -12,6 +12,4 @@ export default  function api(){
     } catch (error) {
         throw new Error(error.massage)
     }
-
-
 };
