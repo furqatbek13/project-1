@@ -1,50 +1,41 @@
-import "../sass/style.scss"
+import "../sass/style.scss";
 import * as bootstrap from "bootstrap";
-import { getAllUsers, createUser, usersData } from "./model";
-import { TableView } from "./view/";
+import { createUser, deleteUser, getAllUsers, usersData } from "./model.js";
+import { tableView, addFormView, searchFormView, actionsView } from "./view";
 
-
-async function controllerLoadUsers() {
-  await getAllUsers();
-  const tableView = new TableView();
+async function controllerLoadUsers(query) {
+  await getAllUsers(query);
   tableView.renderTable(usersData.users);
+};
+
+
+const controllerSearchUsers = function(name){
+  controllerLoadUsers({fullname: name});
+};
+const controllerCanelSearchUser = function(){
+  controllerLoadUsers("");
 }
 
-controllerLoadUsers();
-
-const forms = document.forms;
-const sendForm = forms[1];
-sendForm.addEventListener("submit", async function (event) {
-  event.preventDefault();
-  const formData = new FormData();
-
-
-  const firstname = sendForm.name.value;
-  const getDate = sendForm.date.value.split("-").reverse();
-  const status = sendForm.status.value;
-  const phone = sendForm.phone.value;
-  const mail = sendForm.mail.value;
-  const address = sendForm.address.value;
-
-  const day = getDate[0];
-  const month = getDate[1];
-  const year = getDate[2];
-
-  const dating = new Date(year, month, day);
-  const date = `${day} ${dating.toLocaleDateString("en-US", {
-    month: "long",
-  })}, ${year} `;
-
-  const response = await createUser({
-    firstname,
-    date,
-    status,
-    phone,
-    mail,
-    address,
-  });
-
-  if (response.status === 201) {
+const controllerCreateUsers = async function(newUser){
+  const response = await createUser(newUser);
+  if(response.status === 201){
     controllerLoadUsers();
   }
-});
+};
+
+
+const controllerDeleteUser = async (id) => {
+  const response = await deleteUser(id);
+  if (response.status === 200) {
+    controllerLoadUsers();
+  }
+};
+
+const INIT = function(){
+  controllerLoadUsers();
+  addFormView.createUsersHandler(controllerCreateUsers);
+  searchFormView.searchUserHandler(controllerSearchUsers);
+  searchFormView.cancelSearchUserHandler(controllerCanelSearchUser);
+  actionsView.deleteUser(controllerDeleteUser);
+};
+INIT();

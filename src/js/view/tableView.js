@@ -13,7 +13,7 @@ export class TableView {
         (user) => `
         <tr class="px-2">
           <td class="ms-2 text-base roboto-light">
-            ${user.firstname}
+            ${user.fullname}
           </td>
           <td class="text-base roboto-light">
             ${user.date}
@@ -54,7 +54,7 @@ export class TableView {
                 />
               </svg>
             </button>
-            <button class="btn py-0">
+            <button id="btn-delete" class="btn py-0" data-btn-id=${user.id}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -79,5 +79,7 @@ export class TableView {
 
     this.#parentElement.insertAdjacentHTML("beforeend", mappedHtml);
   }
-}
+};
+
+export const tableView = new TableView();
 

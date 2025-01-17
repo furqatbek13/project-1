@@ -5,12 +5,17 @@ export const usersData = {
   users: [],
 };
 
-export const getAllUsers = async () => {
-  const { data } = await AJAX_CALL().get();
-  usersData.meta = data[0].meta;
-  usersData.users = data[0].items;
+export const getAllUsers = async (query) => {
+  const { data } = await AJAX_CALL().get("", {params: query});
+  // usersData.meta = data;
+  // usersData.users = data;
+  usersData.users = data;
 };
 
 export const createUser = async (user) => {
   return await AJAX_CALL().post("/", user);
+};
+
+export const deleteUser = async(id) =>{
+  return await AJAX_CALL().delete(`/${id}`);
 };
