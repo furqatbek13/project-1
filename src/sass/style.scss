@@ -54,6 +54,7 @@ table {
   );
   
   $theme-colors: map-merge($theme-colors, $custom-colors);
+  $pagination-border-width: 0;
   
   @import "bootstrap/scss/bootstrap";
   

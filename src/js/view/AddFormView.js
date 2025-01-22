@@ -31,6 +31,12 @@ class AddFormView extends FormView {
       this.submit.setAttribute("data-bs-dismiss", "modal");
       this.submit.click();
       handler(formData);
+      this.fullname.value = "";
+      this.date.value = "";
+      this.status.value = "";
+      this.phone.value = "";
+      this.mail.value = "";
+      this.address.value = "";
     });
   }
 }

@@ -7,9 +7,9 @@ export const usersData = {
 
 export const getAllUsers = async (query) => {
   const { data } = await AJAX_CALL().get("", {params: query});
-  // usersData.meta = data;
+  usersData.meta = data.meta;
+  usersData.users = data.items;
   // usersData.users = data;
-  usersData.users = data;
 };
 
 export const createUser = async (user) => {
