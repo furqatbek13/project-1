@@ -1,4 +1,4 @@
-import AJAX_CALL from "./api";
+import { Api } from "./api";
 
 const usersData = {
   meta: {},
@@ -7,36 +7,71 @@ const usersData = {
 
 // get All users
 const getAllUsers = async (query) => {
-  const { data } = await AJAX_CALL().get("", {params: query});
-  if(!data) return;
-  if(data.meta && data.items) {
-    usersData.meta = data.meta;
-    usersData.users = data.items;
-  } else{
-    usersData.users = data;
-    usersData.meta = {};
+  try {
+    const { data, status } = await Api.get("", { params: query });
+    if (status === 200) {
+      if (!data) return;
+      if (data.meta && data.items) {
+        usersData.meta = data.meta;
+        usersData.users = data.items;
+      } else {
+        usersData.users = data;
+        usersData.meta = {};
+      };
+    };
+  } catch (error) {
+    console.error("Error getting all user:", error.message);
   };
 };
 
 // get one user
 const getOneUser = async (id) => {
-  const {data} = await AJAX_CALL().get(`/${id}`);
-  return data;
+  try {
+    const { data, status } = await Api.get(`/${id}`);
+    if (status === 200) {
+      return data;
+    };
+  } catch (error) {
+    console.error("Error getting one user:", error.message);
+  };
 };
 
 // create user
 const createUser = async (user) => {
-  return await AJAX_CALL().post("/", user);
+  try {
+    const response = await Api.post("/", user);
+    if (response.status === 201) {
+      return response;
+    };
+  } catch (error) {
+    console.error("Error creating user:", error.message);
+  };
 };
 
 //edit User
 const editUser = async (editUser, id) => {
-  return await AJAX_CALL().patch(`/${id}`, editUser);
+  try {
+    const response = await Api.patch(`/${id}`, editUser);
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error("Error editng user:", error.message);
+  }
+
 }
 
 //delete user
-const deleteUser = async(id) =>{
-  return await AJAX_CALL().delete(`/${id}`);
+const deleteUser = async (id) => {
+  try {
+    const response = await Api.delete(`/${id}`);
+    if (response.status === 200) {
+      return response;
+    }
+  } catch (error) {
+    console.error("Error deleting user:", error.message);
+  }
+
 };
 
-export {getAllUsers, getOneUser, createUser, editUser, deleteUser, usersData};
+export { getAllUsers, getOneUser, createUser, editUser, deleteUser, usersData };

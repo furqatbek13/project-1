@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack  --mode development",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development"
+    "start": "webpack-dev-server --mode development",
+    "server": "npx json-server data/db.json --watch"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "axios": "^1.7.9",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "json-server": "^1.0.0-beta.3"
   }
 }

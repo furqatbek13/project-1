@@ -12,7 +12,6 @@ class EditFormView extends FormView{
             event.preventDefault(this);
             const formData = getFormElementsValue(this);
             const userId = this.querySelector(".modal-body").dataset.userId;
-            console.log(userId);
             handler(formData, userId);
             clearFormElements(this);
         });
