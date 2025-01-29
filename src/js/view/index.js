@@ -3,3 +3,4 @@ export * from "./AddFormView";
 export * from "./SearchFormView";
 export * from "./ActionsView";
 export * from "./PaginationView";
+export * from "./EditFormView";

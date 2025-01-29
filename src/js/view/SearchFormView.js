@@ -19,9 +19,11 @@ class SearchFormView extends FormView {
         const cancelSearch = this.#searchForm.querySelector("#cancel-search");
         const inputEl = this.#searchForm.search;
         cancelSearch.addEventListener("click", function(){
-            handler();
-            inputEl.value = "";
-        })
-    }
-}
+            if(inputEl.value !== ""){
+                handler();
+                inputEl.value = "";
+            };
+        });
+    };
+};
 export const searchFormView = new SearchFormView()

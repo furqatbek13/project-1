@@ -14,19 +14,25 @@
               <h3 class="roboto-medium fs-2 mb-0">CRUD Table</h3>
             </a>
             <form class="d-flex w-50">
-              <input
-                id="search"
-                type="search"
-                class="form-control me-2"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <span id="cancel-search" class="fs-5 text-secondary overwrite"> &times;</span>
+              <div class="d-flex align-center w-75">
+                <input
+                  id="search"
+                  type="text"
+                  class="form-control me-2"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <span id="cancel-search" class="fs-4 fw-normal text-secondary overwrite">
+                   &times;
+                </span>
+              </div>
               <button class="btn btn-primary text-white" type="submit">
                 Search
               </button>
             </form>
+
             <button
+              id="add-btn"
               type="button"
               class="btn btn-success"
               data-bs-toggle="modal"
@@ -225,7 +231,6 @@
             </li>
           </ul>
         </div> -->
-
       </div>
     </div>
 
@@ -252,8 +257,8 @@
               aria-label="Close"
             ></button>
           </div>
-          <form id="form-data">
-            <div class="modal-body">
+          <form id="form-create">
+            <!-- <div class="modal-body">
               <div class="mb-3">
                 <label for="name" class="form-label">User Name</label>
                 <input
@@ -307,8 +312,9 @@
               >
                 Submit
               </button>
-            </div>
+            </div> -->
           </form>
+          <form id="form-edit"></form>
         </div>
       </div>
     </div>

@@ -4,13 +4,12 @@
 table {
     border-collapse: separate;
     border-spacing: 10px;
-  }
-  .overwrite {
-    display: inline-block;
+}
+.overwrite {
     position: relative;
-    left: -5px;
-    top: 4px;
-  }
+    left: -8px;
+    cursor: pointer;
+}
 
   .roboto-light {
     font-family: "Roboto", serif;

@@ -1,12 +1,14 @@
-export class TableView {
-  #parentElement;
+import View from "./View";
+export class TableView extends View {
+  _parentElement;
 
   constructor() {
-    this.#parentElement = document.getElementById("table-body");
+    super();
+    this._parentElement = document.getElementById("table-body");
   }
 
   renderTable(users) {
-    this.#parentElement.innerHTML = "";
+    this._parentElement.innerHTML = "";
 
     const mappedHtml = users
       .map(
@@ -40,7 +42,11 @@ export class TableView {
            ${user.address}
           </td>
           <td>
-            <button class="btn py-0">
+            <button id= "edit-btn" 
+            class="btn py-0" 
+            data-user-id=${user.id}
+            data-bs-toggle="modal"
+            data-bs-target="#custom-modal">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -54,7 +60,11 @@ export class TableView {
                 />
               </svg>
             </button>
-            <button id="btn-delete" class="btn py-0" data-btn-id=${user.id}>
+            <button 
+            id="btn-delete" 
+            class="btn py-0" 
+            data-user-id=${user.id}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -77,7 +87,7 @@ export class TableView {
       )
       .join("");
 
-    this.#parentElement.insertAdjacentHTML("beforeend", mappedHtml);
+    this._parentElement.insertAdjacentHTML("beforeend", mappedHtml);
   }
 };
 
